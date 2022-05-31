@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-z2n8lonb2$jz6x0cvwdzdy*&g5c$a=_2#e6u91#*j@5se$w)vv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["one-bulletin.herokuapp.com"]
-CSRF_TRUSTED_ORIGINS = ["one-bulletin.herokuapp.com"]
+ALLOWED_HOSTS = ["https://one-bulletin.herokuapp.com"]
+CSRF_TRUSTED_ORIGINS = ["https://one-bulletin.herokuapp.com"]
 
 # Application definition
 
