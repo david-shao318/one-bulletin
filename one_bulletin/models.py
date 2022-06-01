@@ -2,7 +2,7 @@ from django.db import models
 
 
 class NewsStory(models.Model):
-    headline = models.CharField(max_length=255)
+    headline = models.CharField()
     description = models.TextField()
     date_time = models.DateTimeField()
     link = models.URLField()
