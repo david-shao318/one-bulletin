@@ -222,24 +222,24 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         get_all_new_feeds()
 
-        scheduler = BlockingScheduler(timezone=settings.TIME_ZONE)
-        scheduler.add_jobstore(DjangoJobStore(), "default")
-
-        scheduler.add_job(
-            get_all_new_feeds,
-            trigger="interval",
-            minutes=30,
-            id="one bulletin News Feeds",
-            max_instances=1,
-            replace_existing=True,
-        )
-        logger.info("Added job: one bulletin FEEDS")
-
-        try:
-            logger.info("Starting scheduler...")
-            scheduler.start()
-        except KeyboardInterrupt:
-            logger.info("Stopping scheduler...")
-            scheduler.shutdown()
-            logger.info("Scheduler shut down successfully!")
-        return
+        # scheduler = BlockingScheduler(timezone=settings.TIME_ZONE)
+        # scheduler.add_jobstore(DjangoJobStore(), "default")
+        #
+        # scheduler.add_job(
+        #     get_all_new_feeds,
+        #     trigger="interval",
+        #     minutes=30,
+        #     id="one bulletin News Feeds",
+        #     max_instances=1,
+        #     replace_existing=True,
+        # )
+        # logger.info("Added job: one bulletin FEEDS")
+        #
+        # try:
+        #     logger.info("Starting scheduler...")
+        #     scheduler.start()
+        # except KeyboardInterrupt:
+        #     logger.info("Stopping scheduler...")
+        #     scheduler.shutdown()
+        #     logger.info("Scheduler shut down successfully!")
+        # return
