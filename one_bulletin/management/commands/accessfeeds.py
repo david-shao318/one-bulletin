@@ -114,8 +114,12 @@ def access_cbc(url):
                 descr = item.title
             else:
                 descr = descr[0].string
+            if len(item.title) > 200:
+                ttl = item.title[:200]
+            else:
+                ttl = item.title
             story = NewsStory(
-                headline=item.title,
+                headline=ttl,
                 description=descr,
                 date_time=parser.parse(item.published, tzinfos=whois_timezone_info),
                 link=item.links[0].href,
