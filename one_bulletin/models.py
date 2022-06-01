@@ -5,8 +5,8 @@ class NewsStory(models.Model):
     headline = models.CharField(max_length=255)
     description = models.TextField()
     date_time = models.DateTimeField()
-    link = models.URLField()
-    image = models.URLField()
+    link = models.TextField()
+    image = models.TextField()
     sources = models.JSONField(default=list)
     relevancy = models.IntegerField(default=0)
 
