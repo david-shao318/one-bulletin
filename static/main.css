@@ -1,0 +1,31 @@
+:root {
+    --off-white: #f9f9f9;
+    --manatee: #61586b;
+    --pink: #E7CFCD;
+    --gray: #f2f5f5;
+    --opal: #B5C9C3;
+    --blackshadows: #7a626e;
+}
+
+body {
+    background-color: var(--off-white);
+}
+
+#top-img {
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.card:hover,
+.card:focus {
+    background-color: var(--gray);
+    color: var(--blackshadows);
+}
+
+#logo {
+    max-height: 80px;
+}
+
+footer {
+    background-color: var(--opal);
+}
