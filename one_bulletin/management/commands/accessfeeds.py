@@ -1,16 +1,10 @@
 import logging
 
-from django.conf import settings
 from django.core.management.base import BaseCommand
 
 import feedparser
 from dateutil import parser
 from bs4 import BeautifulSoup
-
-# from apscheduler.schedulers.blocking import BlockingScheduler
-# from apscheduler.triggers.cron import CronTrigger
-# from django_apscheduler.jobstores import DjangoJobStore
-# from django_apscheduler.models import DjangoJobExecution
 
 from one_bulletin.models import NewsStory
 
@@ -220,26 +214,6 @@ class Command(BaseCommand):
     help = "Runs apscheduler to access all feeds on set intervals."
 
     def handle(self, *args, **options):
+        logger.info("Starting feed access...")
         get_all_new_feeds()
-
-        # scheduler = BlockingScheduler(timezone=settings.TIME_ZONE)
-        # scheduler.add_jobstore(DjangoJobStore(), "default")
-        #
-        # scheduler.add_job(
-        #     get_all_new_feeds,
-        #     trigger="interval",
-        #     minutes=30,
-        #     id="one bulletin News Feeds",
-        #     max_instances=1,
-        #     replace_existing=True,
-        # )
-        # logger.info("Added job: one bulletin FEEDS")
-        #
-        # try:
-        #     logger.info("Starting scheduler...")
-        #     scheduler.start()
-        # except KeyboardInterrupt:
-        #     logger.info("Stopping scheduler...")
-        #     scheduler.shutdown()
-        #     logger.info("Scheduler shut down successfully!")
-        # return
+        logger.info("Feed access complete.")
