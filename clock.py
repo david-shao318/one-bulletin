@@ -15,6 +15,6 @@ def timed_feed_access():
     cmd.handle()
 
 
-sched.add_job(timed_feed_access, 'interval', id='access_feeds_2_min', minutes=2)
+sched.add_job(timed_feed_access, 'interval', minutes=2)
 
 sched.start()
