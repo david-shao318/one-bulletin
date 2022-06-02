@@ -7,10 +7,10 @@ import feedparser
 from dateutil import parser
 from bs4 import BeautifulSoup
 
-from apscheduler.schedulers.blocking import BlockingScheduler
-from apscheduler.triggers.cron import CronTrigger
-from django_apscheduler.jobstores import DjangoJobStore
-from django_apscheduler.models import DjangoJobExecution
+# from apscheduler.schedulers.blocking import BlockingScheduler
+# from apscheduler.triggers.cron import CronTrigger
+# from django_apscheduler.jobstores import DjangoJobStore
+# from django_apscheduler.models import DjangoJobExecution
 
 from one_bulletin.models import NewsStory
 
