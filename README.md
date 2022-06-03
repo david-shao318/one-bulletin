@@ -6,7 +6,7 @@ A mini-project using django.
 
 Aggregates news headlines from several news media RSS feeds.
 
-This is a work-in-progress. The app is currently configured to only access specific CBC, New York Times, and Economist feeds. This is done every fifteen minutes to update the database. A selection form for the webpage to filter news stories has yet to be implemented.
+This is a work-in-progress. The app is currently configured to only access specific CBC, New York Times, and Economist feeds. This is done every fifteen minutes to update the database. A selection form for the webpage to filter news stories and multiple time zone support are yet to be implemented.
 
 The app is currently hosted on Heroku and uses the default PostgreSQL database on the server. Please note that requesting the page for the first time may take a while since Heroku shuts down the server after thirty minutes of inactivity.
 
