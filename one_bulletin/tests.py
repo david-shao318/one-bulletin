@@ -5,6 +5,7 @@ from .models import NewsStory
 from dateutil import parser
 
 
+# unit tests for model
 class NewsStoryTests(TestCase):
     def setUp(self):
         self.news_story = NewsStory.objects.create(
