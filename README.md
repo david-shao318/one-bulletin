@@ -20,4 +20,4 @@ In `project_one_bulletin/settings.py`, set `DEBUG = True`. Uncomment the `SECRET
 
 Now, run `python manage.py makemigrations && python manage.py migrate` to initialize a local database.
 
-Run `heroku local --port=8000` to test. Go to `0.0.0.0:8000` in a browser.
+Run `heroku local --port=8000` to test. Go to `0.0.0.0:8000` (or `0.0.0.0:8100`) in a browser.
