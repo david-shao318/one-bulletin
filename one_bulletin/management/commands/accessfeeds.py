@@ -1,3 +1,7 @@
+# accessfeeds.py
+# django management command to access all feeds and add them to the database
+# this parses all the RSS feeds, assigns relevancy scores to all news stores, and purges the database of old stories
+
 import logging
 
 from django.core.management.base import BaseCommand
@@ -8,6 +12,7 @@ from bs4 import BeautifulSoup
 
 from one_bulletin.models import NewsStory
 
+# timezone info for displaying local time
 whois_timezone_info = {"A": 1 * 3600, "ACDT": 10.5 * 3600, "ACST": 9.5 * 3600, "ACT": -5 * 3600,
                        "ACWST": 8.75 * 3600, "ADT": 4 * 3600, "AEDT": 11 * 3600, "AEST": 10 * 3600,
                        "AET": 10 * 3600, "AFT": 4.5 * 3600, "AKDT": -8 * 3600, "AKST": -9 * 3600, "ALMT": 6 * 3600,
@@ -56,6 +61,7 @@ whois_timezone_info = {"A": 1 * 3600, "ACDT": 10.5 * 3600, "ACST": 9.5 * 3600, "
                        "Y": -12 * 3600, "YAKST": 10 * 3600, "YAKT": 9 * 3600, "YAPT": 10 * 3600, "YEKST": 6 * 3600,
                        "YEKT": 5 * 3600, "Z": 0 * 3600}
 
+# all feeds currently being accessed
 feed_urls = {
     "CBC World": "https://rss.cbc.ca/lineup/world.xml",
     "CBC Canada": "https://rss.cbc.ca/lineup/canada.xml",
@@ -78,6 +84,8 @@ feed_urls = {
     "ECONOMIST Briefing": "https://www.economist.com/briefing/rss.xml",
 }
 
+
+# logging setup
 logger = logging.getLogger(__name__)
 
 
@@ -187,6 +195,7 @@ def access_economist(url, num_art):
             story.save()
 
 
+# get all feeds automatically
 def get_all_new_feeds():
     # reset relevancy scores
     story_set = NewsStory.objects.all()
@@ -196,6 +205,7 @@ def get_all_new_feeds():
         st.save()
 
     # go through all feeds and access stories
+    # only access first 20 Economist Leaders and first 3 Economist Briefings
     for name, url in feed_urls.items():
         if name[0] == 'C':
             access_cbc(url)
@@ -210,8 +220,9 @@ def get_all_new_feeds():
     NewsStory.objects.filter(relevancy=0).delete()
 
 
+# management command
 class Command(BaseCommand):
-    help = "Runs apscheduler to access all feeds on set intervals."
+    help = "Access all feeds and manages database of news stories."
 
     def handle(self, *args, **options):
         logger.info("Starting feed access...")
