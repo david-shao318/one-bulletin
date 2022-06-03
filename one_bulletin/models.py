@@ -1,6 +1,7 @@
 from django.db import models
 
 
+# database model for a news story
 class NewsStory(models.Model):
     headline = models.CharField(max_length=255)
     description = models.TextField()
