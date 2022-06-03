@@ -14,7 +14,7 @@ The app is currently hosted on Heroku and uses the default PostgreSQL database o
 
 Use Python 3.9 or later (this project was developed using Python 3.10.2).
 
-Create and activate a virtual environment and run `pip install -r requirements.txt` to install all required packages.
+Create and activate a virtual environment. Then run `pip install -r requirements.txt` to install all required packages.
 
 In `project_one_bulletin/settings.py`, set `DEBUG = True`. Uncomment the `SECRET_KEY` used for testing.
 
